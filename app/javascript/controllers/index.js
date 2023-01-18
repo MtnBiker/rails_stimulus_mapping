@@ -7,6 +7,9 @@ import { application } from "./application"
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import LeafletTestController from "./leaflet_test_controller"
+application.register("leaflet-test", LeafletTestController)
+
 import OlLayerGroupController from "./ol_layer_group_controller"
 application.register("ol-layer-group", OlLayerGroupController)
 

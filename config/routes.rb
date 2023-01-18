@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     get :ollayergroup
     get :olosmmap
     get :olstaticimage
+    get :leaflettest
   end
 end
