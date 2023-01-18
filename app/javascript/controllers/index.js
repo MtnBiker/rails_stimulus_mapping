@@ -12,3 +12,6 @@ application.register("ol-layer-group", OlLayerGroupController)
 
 import OlOsmMapController from "./ol_osm_map_controller"
 application.register("ol-osm-map", OlOsmMapController)
+
+import OlStaticImageController from "./ol_static_image_controller"
+application.register("ol-static-image", OlStaticImageController)

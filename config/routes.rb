@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   controller :demo do
     get :ollayergroup
     get :olosmmap
+    get :olstaticimage
   end
 end
