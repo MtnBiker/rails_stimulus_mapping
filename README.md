@@ -14,3 +14,5 @@ yarn add leaflet
 routes.rb root "demo#index"
 
 rails g stimulus ol-layer-group
+
+had to copy leaflet images to public or vendor. assets/image doesn't work
