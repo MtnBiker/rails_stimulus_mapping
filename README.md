@@ -12,3 +12,5 @@ yarn add leaflet
 
 ➜ rails generate controller demo index
 routes.rb root "demo#index"
+
+rails g stimulus ol-layer-group

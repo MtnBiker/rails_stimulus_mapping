@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   root "demo#index"
+  controller :demo do
+    get :ollayergroup
+    get :olosmmap
+  end
 end

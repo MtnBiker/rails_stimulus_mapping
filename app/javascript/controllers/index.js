@@ -6,3 +6,9 @@ import { application } from "./application"
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import OlLayerGroupController from "./ol_layer_group_controller"
+application.register("ol-layer-group", OlLayerGroupController)
+
+import OlOsmMapController from "./ol_osm_map_controller"
+application.register("ol-osm-map", OlOsmMapController)
