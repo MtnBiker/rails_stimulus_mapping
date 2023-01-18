@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: os_stimulus_mapping_development
+  database: crores5_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: os_stimulus_mapping_test
+  database: crores5_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: os_stimulus_mapping_production
-  username: os_stimulus_mapping
-  password: <%= ENV["OS_STIMULUS_MAPPING_DATABASE_PASSWORD"] %>
+  database: crores5_production
+  username: admin
+  password: <%= ENV['CRORES5_DATABASE_PASSWORD'] %>
