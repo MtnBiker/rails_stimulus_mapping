@@ -9,7 +9,7 @@ import {getCenter} from 'ol/extent';
 import OSM from 'ol/source/OSM';
 import TileLayer from 'ol/layer/Tile';
 
-console.log("12. Hi from ol_static_image_controller"); // this shows up
+// console.log("12. Hi from ol_static_image_controller"); // this shows up
 
 // Connects to data-controller="ol-static-image"
 export default class extends Controller {
