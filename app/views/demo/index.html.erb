@@ -1,6 +1,13 @@
-<h1>Demos of OpenLayers and Leaflet Using Rails Stimulus</h1>
+<h1>Demos of OpenLayers and Leaflet Using Rails 7 With Stimulus</h1>
 
-<div><%= link_to "ol-layer-group", ollayergroup_path %><div>
-<div><%= link_to "ol-osm-map", olosmmap_path %></div>
-<div><%= link_to "ol-static-image", olstaticimage_path %></div>
-<div><%= link_to "leaflet-test", leaflettest_path %></div>
+<div>I put this together to gather what I think I've learned works for me with Rails 7 (7.0.4) and integrating OpenLayers and Leaflet. I am trying to upgrade another app and kept running into problems. Old app made by a rank amateur (me). Tried imagemaps with various combinations. Kept getting thrown because Bootstrap forces esbuild (may be workaround, but that is the default). Unfortunately I started to update the app as Rails 7 was coming out and Stimulus was evolving. Stimulus seemed to me to be an easier way to keep the JavaScript sorted—easier than Webpack(er). YMMV.
+</div>
+
+<div>Settling on esbuild (node_modules and yarn, etc.) Both Leaflet and OpenLayers seem to have idiosyncrasies with Rails. See the ReadMe for build details. Now fairly easier.  Postgres is the database setup, but no databases are used in this app, but I use Postgres so wanted this app to mimic.</div>
+
+<div>Several demos follow.</div>
+
+<div><%= link_to "OpenLayers with Layer Group (ol-layer-group)", ollayergroup_path %><div>
+<div><%= link_to "OpenLayers with an OSM map (ol-osm-map)", olosmmap_path %></div>
+<div><%= link_to "OpenLayers with a Static Image (ol-static-image)", olstaticimage_path %></div>
+<div><%= link_to "leaflet with a map and markers (leaflet-test)", leaflettest_path %></div>

@@ -5,4 +5,8 @@
 <p>ol-osm-map</p>
 <div id="maposm" data-controller="ol-osm-map" data-ol-osm-map-target="osmmap" style="height:400px"></div>
 
-<div><%= link_to "Back to Index", root_path %></div>
+<div class="center">
+	<%= link_to "OpenLayers with Layer Group", ollayergroup_path, class: "btn btn-outline-success" %>
+	<%= link_to "Back to Index", root_path, class: "btn btn-outline-info"  %>
+	<%= link_to "OpenLayers with a Static Image", olstaticimage_path, class: "btn btn-outline-success"  %>
+</div>
