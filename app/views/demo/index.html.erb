@@ -3,7 +3,9 @@
 <div class="py-2">I put this together to gather what I think I've learned works for me with Rails 7 (7.0.4) and integrating OpenLayers and Leaflet. I am trying to upgrade another app and kept running into problems. Old app made by a rank amateur (me). Tried <%= link_to "Import Maps", "https://github.com/rails/importmap-rails" %> with various combinations. Kept getting thrown because Bootstrap forces <%= link_to "esbuild", "https://esbuild.github.io/" %> (may be workaround, but that is the default). And it seemed plugins to Leaflet or OpenLayers didn't work well or required additional steps. Unfortunately I started to update the app as Rails 7 was coming out and Stimulus was evolving. Stimulus seemed to me to be an easier way to keep the JavaScript sorted—easier than Webpack(er). YMMV.
 </div>
 
-<div class="py-2">Settling on esbuild (node_modules and yarn, etc.) Both Leaflet and OpenLayers seem to have idiosyncrasies with Rails. See the ReadMe for build details. Now fairly easier.  Postgres is the database setup, but no databases are used in this app, but I use Postgres so wanted this app to mimic.</div>
+<div class="py-2">Settling on <%= link_to "esbuild", "https://esbuild.github.io/" %> (node_modules and yarn, etc.). See the ReadMe for build details. Postgres database setup, but no databases are used in this app, but I use Postgres so wanted this app to mimic that.</div>
+
+<div class="py-2">Why Stimulus? I'm not using sprinkles of JavaScript; I'm using large chunks. But I felt Stimulus isolates the JavaScript to one div (controller and target). With Webpack(er), my JavaScript would step on other parts of the page or other pages. Of course, someone who knew what they were doing could avoid this. Maybe more verbose, but controller and targets are clearly identified (with the caveat below about targets.</div>
 
 <div class="py-2">Currently (Jan. 2023), Rails Guides, <%= link_to "Working with JavaScript in Rails", "https://guides.rubyonrails.org/working_with_javascript_in_rails.html" %> does not mention Stimulus and barely touches on esbuild.</div>
 
