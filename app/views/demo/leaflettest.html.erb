@@ -1,12 +1,12 @@
 <!-- views/demo/ollayergroup.html.erb -->
 
-<p class="text-center"><%= link_to "Leaflet Layers Control", "https://leafletjs.com/examples/layers-control/" %></p>
+<h4 class="text-center"><%= link_to "Leaflet Layers Control", "https://leafletjs.com/examples/layers-control/" %></h4>
 
 <div id="mapll" data-controller="leaflet-test" data-leaflet-test-target="leaftest" style="height:400px"></div>
 
 <div>&nbsp;</div>
 <div class="text-center">
 	<%= link_to "OpenLayers with a Static Image", olstaticimage_path, class: "btn btn-outline-success" %>
-	<%= link_to "Main Page", root_path, class: "btn btn-outline-info"  %>
+	<%= link_to "Home Page", root_path, class: "btn btn-outline-info"  %>
 	<%= link_to "OpenLayers with Layer Group", ollayergroup_path, class: "btn btn-outline-success" %>
 </div>
