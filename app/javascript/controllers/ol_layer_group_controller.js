@@ -17,7 +17,7 @@ export default class extends Controller {
     static targets = [ "lgmap" ];
 
     connect(){
-      console.log("12. Hi from ol_layer_group_controller"); // this shows up
+      console.log("20. Hi from ol_layer_group_controller to confirm that Stimulus controller is connected to the page."); // this shows up
 
       //  Copied but didn't used most of them
       var osmLink  = '<a href="https://openstreetmap.org">OpenStreetMap</a>',
@@ -99,7 +99,6 @@ export default class extends Controller {
               url: pierce1894url,
             }),
           }),
-          debugger;
           new TileLayer({
             // A layer must have a title to appear in the layerswitcher
             title: '1894 Sanborn Detailed',

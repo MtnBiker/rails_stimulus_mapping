@@ -17,8 +17,8 @@ routes.rb root "demo#index"
 
 `rails g stimulus ol-layer-group` to generate dummy stimulus controller and update javascript/controller/index.js, etc.
 
-had to copy leaflet images to public or vendor (didn't ascertain which was best). assets/images doesn't work.
-Stopped working after a clear cache in chrome.
+had to copy leaflet images to /public . assets/images doesn't work nor does /vendor.
+Stopped working after a clear cache in chrome
 
 ➜ fly launch [rails-openlayers-leaflet]
 ➜ fly deploy [said no to db, even though is pg]

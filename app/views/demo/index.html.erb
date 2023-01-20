@@ -1,15 +1,16 @@
 <h1>Demos of OpenLayers and Leaflet Using Rails 7 With Stimulus</h1>
 
-<div>I put this together to gather what I think I've learned works for me with Rails 7 (7.0.4) and integrating OpenLayers and Leaflet. I am trying to upgrade another app and kept running into problems. Old app made by a rank amateur (me). Tried <%= link_to "Import Maps", "https://github.com/rails/importmap-rails" %> with various combinations. Kept getting thrown because Bootstrap forces <%= link_to "esbuild", "https://esbuild.github.io/" %> (may be workaround, but that is the default). And it seemed plugins to Leaflet or OpenLayers didn't work well or required additional steps. Unfortunately I started to update the app as Rails 7 was coming out and Stimulus was evolving. Stimulus seemed to me to be an easier way to keep the JavaScript sorted—easier than Webpack(er). YMMV.
+<div class="p-4">I put this together to gather what I think I've learned works for me with Rails 7 (7.0.4) and integrating OpenLayers and Leaflet. I am trying to upgrade another app and kept running into problems. Old app made by a rank amateur (me). Tried <%= link_to "Import Maps", "https://github.com/rails/importmap-rails" %> with various combinations. Kept getting thrown because Bootstrap forces <%= link_to "esbuild", "https://esbuild.github.io/" %> (may be workaround, but that is the default). And it seemed plugins to Leaflet or OpenLayers didn't work well or required additional steps. Unfortunately I started to update the app as Rails 7 was coming out and Stimulus was evolving. Stimulus seemed to me to be an easier way to keep the JavaScript sorted—easier than Webpack(er). YMMV.
 </div>
 
-<div>Settling on esbuild (node_modules and yarn, etc.) Both Leaflet and OpenLayers seem to have idiosyncrasies with Rails. See the ReadMe for build details. Now fairly easier.  Postgres is the database setup, but no databases are used in this app, but I use Postgres so wanted this app to mimic.</div>
+<div class="p-4">Settling on esbuild (node_modules and yarn, etc.) Both Leaflet and OpenLayers seem to have idiosyncrasies with Rails. See the ReadMe for build details. Now fairly easier.  Postgres is the database setup, but no databases are used in this app, but I use Postgres so wanted this app to mimic.</div>
 
-<div>Currently (Jan. 2023), Rails Guides, <%= link_to "Working with JavaScript in Rails", "https://guides.rubyonrails.org/working_with_javascript_in_rails.html" %> does not mention Stimulus and barely touches on esbuild.</div>
+<div class="p-4">Currently (Jan. 2023), Rails Guides, <%= link_to "Working with JavaScript in Rails", "https://guides.rubyonrails.org/working_with_javascript_in_rails.html" %> does not mention Stimulus and barely touches on esbuild.</div>
 
 <div>One gotcha is that Stimulus has a 'target' and so does OpenLayers and Leaflet. I haven't developed a conistent naming convention which can make debugging difficult. This gets more complicated if two maps are on the same web page. For that reason I try not to use the generic `map` for the OpenLayers/Leaflet 'target' (the 'id=map'. I also thought I had issues with the Stimulus 'targets' getting confused with more than one map per page.</div>
 
 <div>Another gotcha is with copy and pasting the html.erb. Stimulus controller name is repeated and easy to misread with all the hyphens, but longer, more descriptive controller names are useful. For example:</div>
+
 <pre class="pre-scrollable">
 	<div id="d-xxl-inline-block">
 		<div id=&quot;mapolg&quot; 
@@ -22,6 +23,9 @@
 
 <div>Something else I don't understand is that Leaflet code can be plugged into Stimulus without change as long as `import L from "leaflet"` is included and `@import 'leaflet/dist/leaflet'
 	@import 'ol-layerswitcher/dist/ol-layerswitcher';` is added to `application.bootstrap.scss`. (And why is the default not `application.scss` with `bootstrap` imported? ) With OpenLayers referenced to `map` need to be changed to `this.map`. No doubt those with a better understanding of Rails and JavaScript will know why this is.</div>
+	
+<div>running bin/dev but app/assets/builds/application.js isn't always updated with changes in Stimulus controllers AFAIK. Oops, I missed a syntax error in the Stimulus controller was preventing the update of application.js. I'm leaving this as a reminder to look at iTerm console for errors. </div>
+<div><%= link_to "Stimulus debugging", "https://github.com/hotwired/stimulus/pull/354" %></div>
 
 <div>Several demos follow.</div>
 
