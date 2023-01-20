@@ -1,11 +1,13 @@
 <h1>Demos of OpenLayers and Leaflet Using Rails 7 With Stimulus</h1>
 
-<div class="py-2">I put this together to gather what I think I've learned works for me with Rails 7 (7.0.4) and integrating OpenLayers and Leaflet. I am trying to upgrade another app and kept running into problems. Old app made by a rank amateur (me). Tried <%= link_to "Import Maps", "https://github.com/rails/importmap-rails" %> with various combinations. Kept getting thrown because Bootstrap forces <%= link_to "esbuild", "https://esbuild.github.io/" %> (may be workaround, but that is the default). And it seemed plugins to Leaflet or OpenLayers didn't work well or required additional steps. Unfortunately I started to update the app as Rails 7 was coming out and Stimulus was evolving. Stimulus seemed to me to be an easier way to keep the JavaScript sorted—easier than Webpack(er). YMMV.
+<div class="py-2"><%= link_to "The app at fly.dev", "https://rails-openlayers-leaflet.fly.dev/" %> which is usually redundant.
+
+<div class="py-2">I put this together to gather what I'm learning works for me with Rails 7 (7.0.4) and integrating <%= link_to "OpenLayers", "https://openlayers.org" %> and <%= link_to "Leaflet", "https://leafletjs.com" %>. I am trying to upgrade another app and kept running into problems. An old app made by a rank amateur (me). Tried <%= link_to "Import Maps", "https://github.com/rails/importmap-rails" %> with various combinations. Kept getting thrown because Bootstrap forces <%= link_to "esbuild", "https://esbuild.github.io/" %> (may be workaround, but that is the default). And it seemed plugins to Leaflet or OpenLayers didn't work well or required additional steps. Unfortunately I started to update the app as Rails 7 was coming out and <%= link_to "Stimulus", "https://stimulus.hotwired.dev" %> was evolving which was too early.
 </div>
 
-<div class="py-2">Settling on <%= link_to "esbuild", "https://esbuild.github.io/" %> (node_modules and yarn, etc.). See the ReadMe for build details. Postgres database setup, but no databases are used in this app, but I use Postgres so wanted this app to mimic that.</div>
+<div class="py-2">Settling on <%= link_to "esbuild", "https://esbuild.github.io/" %> (node_modules and yarn, etc.). See the <%= link_to "ReadMe at Gitbub", "https://github.com/MtnBiker/rails_stimulus_mapping" %> for build details and code. Postgres database setup, but no databases are used in this app, but I use Postgres so wanted this app to mimic that.</div>
 
-<div class="py-2">Why Stimulus? I'm not using sprinkles of JavaScript; I'm using large chunks. But I felt Stimulus isolates the JavaScript to one div (controller and target). With Webpack(er), my JavaScript would step on other parts of the page or other pages. Of course, someone who knew what they were doing could avoid this. Maybe more verbose, but controller and targets are clearly identified (with the caveat below about targets.</div>
+<div class="py-2">Why Stimulus? I'm not using sprinkles of JavaScript; I'm using large chunks. But I felt Stimulus isolates the JavaScript to one div (controller and target). With Webpack(er), my JavaScript would step on other parts of the page or other pages. Of course, someone who knew what they were doing could avoid this. Stimulus may be more verbose, but controller and targets are clearly identified (with the caveat below about targets).</div>
 
 <div class="py-2">Currently (Jan. 2023), Rails Guides, <%= link_to "Working with JavaScript in Rails", "https://guides.rubyonrails.org/working_with_javascript_in_rails.html" %> does not mention Stimulus and barely touches on esbuild.</div>
 
@@ -23,16 +25,18 @@
  	</code>
 </pre>
 
-<div class="py-2">Something else I don't understand is that Leaflet code can be plugged into Stimulus without change as long as <code>import L from "leaflet"</code> is included and<br>
+<div class="py-2">Something else I don't understand is that Leaflet code can be plugged into Stimulus without change as long as <code>import L from "leaflet"</code> is included in the Stimulus controller and<br>
 <code>@import 'leaflet/dist/leaflet'</code><br>
 <code>@import 'ol-layerswitcher/dist/ol-layerswitcher';</code><br/>
  is added to `application.bootstrap.scss`. (And why is the default not `application.scss` with `bootstrap` imported? ) With OpenLayers referenced to `map` need to be changed to `this.map`. No doubt those with a better understanding of Rails and JavaScript will know why this is.</div>
 
-<div class="py-2"><%= link_to "Stimulus debugging", "https://github.com/hotwired/stimulus/pull/354" %></div>
+<div class="py-2">I just discovered <%= link_to "Stimulus debugging", "https://github.com/hotwired/stimulus/pull/354" %> which should prove useful.</div>
 
-<div class="py-2">Several demos follow.</div>
+<div class="py-2">Below are several demos I put together to help me sort this out. I tried to do this in my existing apps but ran into conflicts.</div>
 
-<div class="py-1"><%= link_to "OpenLayers with Layer Group", ollayergroup_path, class: "icon-next" %><div>
+<div class="py-1"><%= link_to "OpenLayers with Layer Group", ollayergroup_path, class: "icon-next" %>. Not working yet. A JavaScript problem?<div>
 <div class="py-1"><%= link_to "OpenLayers with an OSM map", olosmmap_path %></div>
 <div class="py-1"><%= link_to "OpenLayers with a Static Image", olstaticimage_path %></div>
 <div class="py-1"><%= link_to "Leaflet with a map and markers", leaflettest_path %></div>
+
+<div class="py-2">The two apps I'm working on: <%= link_to "Croatian Operated Restaurants in Early Los Angeles", "https://croatian-restaurants-la.fly.dev" %> and <%= link_to "Historical Street Names in Los Angeles", "https://la-hist-streets.fly.dev" %>. I hope to get back to these now that I'm sorting out Stimulus and fly.io (moved from Heroku).</div>

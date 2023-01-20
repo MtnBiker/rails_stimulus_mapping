@@ -1,4 +1,4 @@
-See [app/views/demo/index.html.erb](https://rails-openlayers-leaflet.fly.dev) for more information.
+See [the app deployed at fly.io](https://rails-openlayers-leaflet.fly.dev) for more information—it's more like the ReadMe.
 
 ➜ rails new os-stimulus-mapping --j esbuild --css bootstrap --database postgresql --skip-action-mailer --skip-action-mailbox --skip-action-cable
 
