@@ -3,7 +3,7 @@ import L from "leaflet" // ie, the node_module
 // import "leaflet-css"; // works in importmaps, but not with esbuild. Had to copy into app/assets/stylesheets and import in application.bootstrap.scss. Or link to it there.
 // Connects to data-controller="leaflet"
 export default class extends Controller {
-  static targets = [ "leaftest" ] // is for Stimulus
+  // static targets = [ "leaftest" ] // is for Stimulus but not being used?
   
   connect() {
    

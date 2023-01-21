@@ -13,7 +13,7 @@ import TileLayer from 'ol/layer/Tile';
 
 // Connects to data-controller="ol-static-image"
 export default class extends Controller {
-  static targets = [ "simage" ] // data-ol-static-image-target="simage"
+  // static targets = [ "mapsi" ] // data-ol-static-image-target="simage"
 
   connect() {
     // Map views always need a projection.  Here we just want to map image

@@ -1,13 +1,12 @@
 // app/javascript/controllers/ol_layer_switcher_controller.js
 import { Controller } from "@hotwired/stimulus"
 
-import Map from 'ol/Map';
-import View from 'ol/View';
-import {ImageLayer, TileLayer, GroupLayer} from 'ol/layer';
-import Static from 'ol/source/ImageStatic';
+import Map from 'ol/Map.js';
+import View from 'ol/View.js';
+import {Group as LayerGroup, Tile as TileLayer, Image as ImageLayer} from 'ol/layer.js';
+import {Static, OSM, XYZ, Stamen, ImageArcGISRest} from 'ol/source';
+import {Projection, fromLonLat, transform} from 'ol/proj.js';
 import {getCenter} from 'ol/extent';
-import {OSM, XYZ, Stamen, ImageArcGISRest} from 'ol/source';
-import {Projection, fromLonLat, transform} from 'ol/proj';
 import LayerSwitcher from 'ol-layerswitcher/dist/ol-layerswitcher.js';
 
 // Connects to data-controller="ol-layer-switcher"
@@ -17,7 +16,7 @@ export default class extends Controller {
   connect() {
     console.log("20. Hi from ol_layer_switcher_controller to confirm that Stimulus controller is connected to the page."); 
       this.map = new Map({
-        target: 'mapols',
+        target: 'lgmap',
         layers: [
           new GroupLayer({
             // A layer must have a title to appear in the layerswitcher

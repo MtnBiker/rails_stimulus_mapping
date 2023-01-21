@@ -11,7 +11,7 @@ import {fromLonLat} from 'ol/proj';
 
 // Connects to data-controller="ol-osm-map"
 export default class extends Controller {
-  static targets = [ "osmmap" ] // is for Stimulus
+  static targets = [ "maposm" ] // is for Stimulus
 
   connect() {
     this.map = new Map({

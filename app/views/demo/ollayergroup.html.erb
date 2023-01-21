@@ -1,6 +1,6 @@
 <!-- views/demo/ollayergroup.html.erb -->
 
-<h4 class="text-center"><%= link_to "Layer Group. OpenLayers Basic Layer Switcher", "http://raw.githack.com/walkermatt/ol-layerswitcher/master/examples/layerswitcher.html"%></h4>
+<h4 class="text-center"><%= link_to "Layer Group", "http://raw.githack.com/walkermatt/ol-layerswitcher/master/examples/layerswitcher.html"%></h4>
 
 <div id="mapolg" 
    data-controller="ol-layer-group" 
@@ -10,7 +10,7 @@
 
 <div>&nbsp;</div>
 <div class="text-center">
-	<%#= link_to 'Marietich (Previous)', 'marietich', class: "btn btn-outline-success" %>
+	<%= link_to "OpenLayers Basic Layer Switcher", ollayerswitcher_path, class: "btn btn-outline-success"  %>
 	<%= link_to "Home Page", root_path, class: "btn btn-outline-info" %>
 	<%= link_to "Next: OpenLayers with an OSM map", olosmmap_path, class: "btn btn-outline-success" %>
 </div>

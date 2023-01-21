@@ -1,13 +1,13 @@
 // app/javascript/controllers/ol_layer_group_controller.js
 import { Controller } from "@hotwired/stimulus"
 
-import Map from 'ol/Map';
-import View from 'ol/View';
-import {ImageLayer, TileLayer, GroupLayer} from 'ol/layer/Image';
-import {getCenter} from 'ol/extent';
-import {OSM, XYZ, Static} from 'ol/source';
-import {Projection, fromLonLat} from 'ol/proj';
+import Map from 'ol/Map.js';
+import View from 'ol/View.js';
+import {Group as LayerGroup, Tile as TileLayer, Image as ImageLayer} from 'ol/layer.js';
+import {OSM, XYZ, Static} from 'ol/source.js';
+import {Projection, fromLonLat} from 'ol/proj.js';
 import LayerSwitcher from 'ol-layerswitcher/dist/ol-layerswitcher.js';
+import {getCenter} from 'ol/extent.js';
 
 // Connects to data-controller="ol-layer-group"
 export default class extends Controller {
@@ -15,7 +15,6 @@ export default class extends Controller {
 
     connect(){
       console.log("20. Hi from ol_layer_group_controller to confirm that Stimulus controller is connected to the page."); // this shows up
-
       //  Copied but didn't used most of them
       var osmLink  = '<a href="https://openstreetmap.org">OpenStreetMap</a>',
         esriLink   = '<a href="https://www.esri.com/">Esri</a>',
@@ -257,11 +256,11 @@ export default class extends Controller {
           }) // end new ol.Map
       }); // end var map
       // The following needs base and overlay is ol.layerswitcher which has a problem
-      var varLayerSwitcher = new LayerSwitcher({
+      var layerSwitcher = new LayerSwitcher({
           tipLabel: 'Legend', // Optional label for button and isn't seen
           groupSelectStyle: 'children' // Can be 'children' [default], 'group' or 'none'
       });
-      this.map.addControl(varLayerSwitcher);
+      this.map.addControl(layerSwitcher);
       
   } // connect
 } // export
