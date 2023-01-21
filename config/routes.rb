@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   root "demo#index"
   controller :demo do
+    get :ollayerswitcher
     get :ollayergroup
     get :olosmmap
     get :olstaticimage

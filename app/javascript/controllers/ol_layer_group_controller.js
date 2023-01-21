@@ -1,15 +1,12 @@
 // app/javascript/controllers/ol_layer_group_controller.js
 import { Controller } from "@hotwired/stimulus"
-import ImageLayer from 'ol/layer/Image';
-import GroupLayer from 'ol/layer/Group';
+
 import Map from 'ol/Map';
-import Projection from 'ol/proj/Projection';
-import Static from 'ol/source/ImageStatic';
 import View from 'ol/View';
+import {ImageLayer, TileLayer, GroupLayer} from 'ol/layer/Image';
 import {getCenter} from 'ol/extent';
-import {OSM, XYZ} from 'ol/source';
-import TileLayer from 'ol/layer/Tile';
-import {fromLonLat} from 'ol/proj';
+import {OSM, XYZ, Static} from 'ol/source';
+import {Projection, fromLonLat} from 'ol/proj';
 import LayerSwitcher from 'ol-layerswitcher/dist/ol-layerswitcher.js';
 
 // Connects to data-controller="ol-layer-group"

@@ -1,4 +1,4 @@
-See [the app deployed at fly.io](https://rails-openlayers-leaflet.fly.dev) for more information—it's more like the ReadMe.
+[The app deployed at fly.io](https://rails-openlayers-leaflet.fly.dev) for more information—it's more like the ReadMe should be.
 
 ➜ rails new os-stimulus-mapping --j esbuild --css bootstrap --database postgresql --skip-action-mailer --skip-action-mailbox --skip-action-cable
 
@@ -19,8 +19,3 @@ routes.rb root "demo#index"
 
 had to copy leaflet images to /public . assets/images doesn't work nor does /vendor.
 Stopped working after a clear cache in chrome
-
-➜ fly launch [rails-openlayers-leaflet]
-➜ fly deploy [said no to db, even though is pg]
-Failed, can't do `fly launch` again to reset, automatically try `fly deploy`
-fly open

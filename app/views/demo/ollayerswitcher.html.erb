@@ -1,0 +1,16 @@
+<!-- views/demo/ollayergroup.html.erb -->
+
+<h4 class="text-center"><%= link_to "OpenLayers Basic Layer Switcher", "https://github.com/walkermatt/ol-layerswitcher"%></h4>
+
+<div id="mapols" 
+   data-controller="ol-layer-switcher" 
+	 data-ol-layer-group-target="lgmap" 
+	 style="height:400px">
+ </div>
+
+<div>&nbsp;</div>
+<div class="text-center">
+	<%#= link_to 'Marietich (Previous)', 'marietich', class: "btn btn-outline-success" %>
+	<%= link_to "Home Page", root_path, class: "btn btn-outline-info" %>
+	<%= link_to "> OpenLayers with Layer Group", ollayergroup_path, class: "btn btn-outline-success" %>
+</div>

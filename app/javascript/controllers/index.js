@@ -13,6 +13,9 @@ application.register("leaflet-test", LeafletTestController)
 import OlLayerGroupController from "./ol_layer_group_controller"
 application.register("ol-layer-group", OlLayerGroupController)
 
+import OlLayerSwitcherController from "./ol_layer_switcher_controller"
+application.register("ol-layer-switcher", OlLayerSwitcherController)
+
 import OlOsmMapController from "./ol_osm_map_controller"
 application.register("ol-osm-map", OlOsmMapController)
 
