@@ -22,7 +22,7 @@ export default class extends Controller {
       zoom: 13,
     });
     
-    $.getJSON('public/line_data.geojson', function (data_data) { 
+    $.getJSON('/public/line_data.geojson', function (data_data) { 
       var timelineData = L.timeline(data_data, {
         style: function (data_data) {
           return {

@@ -1,8 +1,83 @@
 <!-- views/demo/ollayergroup.html.erb -->
 
-<h4 class="text-center"><%= link_to "Leaflet Layers Control", "https://leafletjs.com/examples/layers-control/" %></h4>
+<h4 class="text-center">
+	<%= link_to "OpenLayers with a Static Image <", olstaticimage_path, class: "btn btn-outline-success" %>
+  <%= link_to "Leaflet Layers Control", "https://leafletjs.com/examples/layers-control/" %>
+	<%= link_to "> Leaflet With Timeline", leaflettimeline_path, class: "btn btn-outline-success caret-right-fill" %>
+</h4>
 
-<div id="mapll" data-controller="leaflet-test" data-leaflet-test-target="leaftest" style="height:400px"></div>
+<div id="mapll"
+     data-controller="leaflet-test" 
+     data-leaflet-test-target="leaftest" 
+     data-leaflet-test-lng-value="-105.02"
+     data-leaflet-test-lat-value="39.61"     
+     style="height:400px">
+</div>
+
+<div class="pt-2">HTML. One set of latitude and longitude passed to controller to demonstrate.</div>
+<pre class="pre-scrollable">
+	<code>
+		&lt;div id=&quot;mapll&quot; 
+			data-controller=&quot;leaflet-test&quot; 
+			data-leaflet-test-target=&quot;leaftest&quot; 
+			data-leaflet-test-lng-value=&quot;-105.02&quot;
+			data-leaflet-test-lat-value=&quot;39.61&quot;     
+			style=&quot;height:400px&quot;&gt;
+		&lt;/div&gt;
+	</code>
+</pre>
+
+<div class="pt-2">leaflet_test_controller.js</div>
+<pre class="pre-scrollable"
+	<code>
+		import { Controller } from &quot;@hotwired/stimulus&quot;
+		import L from &quot;leaflet&quot; // the node_module
+		export default class extends Controller {
+			static targets = [ &quot;leaftest&quot; ]
+			static values = {
+				lng: String,
+				lat: String,
+			}			
+			connect() {
+		 	const cities = L.layerGroup();		 	
+		  // One pair of values passed in to demonstrate
+		 	var lng = this.lngValue;
+		 	var lat = this.latValue;		 	
+		 	const mLittleton = L.marker([lng, lat]).bindPopup(&apos;This is Littleton, CO.&apos;).addTo(cities);
+		 	const mDenver =    L.marker([39.74, -104.99]).bindPopup(&apos;This is Denver, CO.&apos;).addTo(cities);
+		 	const mAurora =    L.marker([39.73, -104.8]).bindPopup(&apos;This is Aurora, CO.&apos;).addTo(cities);
+		 	const mGolden =    L.marker([39.77, -105.23]).bindPopup(&apos;This is Golden, CO.&apos;).addTo(cities);		 	
+		 	const mbAttr = &apos;Map data &amp;copy; &lt;a href=&quot;https://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt; contributors, Imagery &copy; &lt;a href=&quot;https://www.mapbox.com/&quot;&gt;Mapbox&lt;/a&gt;&apos;;
+		 	const mbUrl = &apos;https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw&apos;;		 	
+		 	const streets = L.tileLayer(mbUrl, {id: &apos;mapbox/streets-v11&apos;, tileSize: 512, zoomOffset: -1, attribution: mbAttr});		 	
+		 	const osm = L.tileLayer(&apos;https://tile.openstreetmap.org/{z}/{x}/{y}.png&apos;, {
+			 	maxZoom: 19,
+			 	attribution: &apos;&amp;copy; &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;OpenStreetMap&lt;/a&gt;&apos;
+		 	});		 	
+		 	// not this.map with leaflet
+		 	const map = L.map(&apos;mapll&apos;, {
+			 	center: [39.73, -104.99],
+			 	zoom: 10,
+			 	layers: [osm, cities]
+		 	});	 	
+		 	const baseLayers = {
+			 	&apos;OpenStreetMap&apos;: osm,
+			 	&apos;Streets&apos;: streets
+		 	};		 	
+		 	const overlays = {
+			 	&apos;Cities&apos;: cities
+		 	};		 	
+		 	const layerControl = L.control.layers(baseLayers, overlays).addTo(map);
+		 	const crownHill = L.marker([39.75, -105.09]).bindPopup(&apos;This is Crown Hill Park.&apos;);
+		 	const rubyHill = L.marker([39.68, -105.00]).bindPopup(&apos;This is Ruby Hill Park.&apos;);		 	
+		 	const parks = L.layerGroup([crownHill, rubyHill]);		 	
+		 	const satellite = L.tileLayer(mbUrl, {id: &apos;mapbox/satellite-v9&apos;, tileSize: 512, zoomOffset: -1, attribution: mbAttr});
+		 	layerControl.addBaseLayer(satellite, &apos;Satellite&apos;);
+		 	layerControl.addOverlay(parks, &apos;Parks&apos;);
+			}
+		}
+  </code>
+</pre>
 
 <div>&nbsp;</div>
 <div class="text-center">
