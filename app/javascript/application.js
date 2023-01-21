@@ -6,4 +6,6 @@ import "./src/jquery-fix.js" // named such so don't confuse with jquery itself w
 // https://gorails.com/episodes/how-to-use-jquery-with-esbuild?autoplay=1 Order of these four is important
 // window variables assigned before jquery-ui called. Hoisting problem
 import "./src/jquery-ui" // having the node_module version doesn't work because all of it is not available. 
+import "./src/TimelineSliderControl.js"
+import "./src/Timeline.js"
 

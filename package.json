@@ -8,6 +8,7 @@
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.3",
     "esbuild": "^0.17.2",
+    "jquery": "^3.6.3",
     "leaflet": "^1.9.3",
     "ol": "^7.2.2",
     "ol-layerswitcher": "^4.1.0",

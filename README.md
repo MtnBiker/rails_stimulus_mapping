@@ -19,3 +19,5 @@ routes.rb root "demo#index"
 
 had to copy leaflet images to /public . assets/images doesn't work nor does /vendor.
 Stopped working after a clear cache in chrome
+
+➜ yarn add jquery # moving on so can do more complex Leaflet

@@ -1,0 +1,17 @@
+<!-- views/demo/ollayergroup.html.erb -->
+
+<h4 class="text-center"><%= link_to "Leaflet Timeline", ""%></h4>
+
+<div id="ltlmap" 
+   data-controller="leaflet-timeline" 
+	 data-leaflet-timeline-target="ltlmap" 
+	 style="height:500px">
+ </div>
+
+<!-- Nav -->
+<div>&nbsp;</div>
+<div class="text-center">
+	<%= link_to "Leaflet with a map and markers <", leaflettest_path, class: "btn btn-outline-success" %>
+	<%= link_to "Home Page", root_path, class: "btn btn-outline-info"  %>
+	<%= link_to "> OpenLayers with Layer Switcher", ollayerswitcher_path, class: "btn btn-outline-success caret-right-fill" %>
+</div>

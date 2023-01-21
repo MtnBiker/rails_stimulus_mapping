@@ -11,5 +11,6 @@ Rails.application.routes.draw do
     get :olosmmap
     get :olstaticimage
     get :leaflettest
+    get :leaflettimeline
   end
 end

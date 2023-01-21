@@ -10,6 +10,12 @@ application.register("hello", HelloController)
 import LeafletTestController from "./leaflet_test_controller"
 application.register("leaflet-test", LeafletTestController)
 
+import LeafletTimelineController from "./leaflet_timeline_controller"
+application.register("leaflet-timeline", LeafletTimelineController)
+
+import LtDataOverlayController from "./lt_data_overlay_controller"
+application.register("lt-data-overlay", LtDataOverlayController)
+
 import OlLayerGroupController from "./ol_layer_group_controller"
 application.register("ol-layer-group", OlLayerGroupController)
 
