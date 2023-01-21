@@ -28,9 +28,10 @@ export default class extends Controller {
     });
   }
 
-  disconnect(){
-      this.map.remove()
-  }
+//  Not sure what this was supposed to do
+  // disconnect(){
+  //     this.map.remove()
+  // }
 }
 
 // Does  this.map in more than one controller confuse

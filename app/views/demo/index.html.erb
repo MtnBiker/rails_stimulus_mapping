@@ -9,7 +9,9 @@
 
 <div class="py-2">Currently (Jan. 2023), Rails Guides, <%= link_to "Working with JavaScript in Rails", "https://guides.rubyonrails.org/working_with_javascript_in_rails.html" %> does not mention Stimulus and barely touches on esbuild.</div>
 
-<div class="py-2">One gotcha is that Stimulus has a 'target' and so does OpenLayers and Leaflet. I haven't developed a consistent naming convention which can make debugging difficult. This gets more complicated if two maps are on the same web page. For that reason I try not to use the generic `map` for the OpenLayers/Leaflet 'target' (the 'id=map'. I also thought I had issues with the Stimulus 'targets' getting confused with more than one map per page. Maybe use the same name for both targets or is the Stimuls `targets` being used?</div>
+<div class="py-2">OpenLayers seems to be changing the canonical way to import, <%= link_to "for example", "https://openlayers.org/en/latest/examples/reprojection-image.html" %>, <code>import {Group as LayerGroup, Tile as TileLayer, Image as ImageLayer} from 'ol/layer.js';</code> typical now. '.js' and 'Something as Something'.</div>
+
+<div class="py-2">One gotcha is that Stimulus has a 'target' and so does OpenLayers and Leaflet. I haven't developed a consistent naming convention which can make debugging difficult. This gets more complicated if two maps are on the same web page. For that reason I try not to use the generic `map` for the OpenLayers/Leaflet 'target' (the 'id=map'. I also thought I had issues with the Stimulus 'targets' getting confused with more than one map per page. Maybe use the same name for both targets or is the Stimulus `targets` being used?</div>
 
 <div class="py-2">Another gotcha is with copy and pasting the html.erb. Stimulus controller name is repeated and easy to misread with all the hyphens, but longer, more descriptive controller names are useful. For example:</div>
 

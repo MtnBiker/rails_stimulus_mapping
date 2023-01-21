@@ -4,25 +4,26 @@ import { Controller } from "@hotwired/stimulus"
 import Map from 'ol/Map.js';
 import View from 'ol/View.js';
 import {Group as LayerGroup, Tile as TileLayer, Image as ImageLayer} from 'ol/layer.js';
-import {Static, OSM, XYZ, Stamen, ImageArcGISRest} from 'ol/source';
+import {OSM, XYZ, Stamen, ImageArcGISRest} from 'ol/source';
+import Static from 'ol/source/ImageStatic.js';
 import {Projection, fromLonLat, transform} from 'ol/proj.js';
 import {getCenter} from 'ol/extent';
 import LayerSwitcher from 'ol-layerswitcher/dist/ol-layerswitcher.js';
 
 // Connects to data-controller="ol-layer-switcher"
 export default class extends Controller {
-  static targets = [ "lsmap" ];
+  // static targets = [ "lsmap" ];
 
   connect() {
     console.log("20. Hi from ol_layer_switcher_controller to confirm that Stimulus controller is connected to the page."); 
       this.map = new Map({
-        target: 'lgmap',
+        target: 'lsmap',
         layers: [
-          new GroupLayer({
+          new LayerGroup({
             // A layer must have a title to appear in the layerswitcher
             title: 'Base maps',
             layers: [
-              new GroupLayer({
+              new LayerGroup({
                 // A layer must have a title to appear in the layerswitcher
                 title: 'Water color with labels',
                 // Setting the layers type to 'base' results
@@ -66,7 +67,7 @@ export default class extends Controller {
               })
             ]
           }),
-          new GroupLayer({
+          new LayerGroup({
             // A layer must have a title to appear in the layerswitcher
             title: 'Overlays',
             // Adding a 'fold' property set to either 'open' or 'close' makes the group layer
@@ -83,7 +84,7 @@ export default class extends Controller {
                     'https://ons-inspire.esriuk.com/arcgis/rest/services/Administrative_Boundaries/Countries_December_2016_Boundaries/MapServer'
                 })
               }),
-              new GroupLayer({
+              new LayerGroup({
                 // A layer must have a title to appear in the layerswitcher
                 title: 'Census',
                 fold: 'open',

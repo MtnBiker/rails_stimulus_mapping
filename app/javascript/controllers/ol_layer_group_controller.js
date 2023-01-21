@@ -4,7 +4,8 @@ import { Controller } from "@hotwired/stimulus"
 import Map from 'ol/Map.js';
 import View from 'ol/View.js';
 import {Group as LayerGroup, Tile as TileLayer, Image as ImageLayer} from 'ol/layer.js';
-import {OSM, XYZ, Static} from 'ol/source.js';
+import {OSM, XYZ} from 'ol/source.js';
+import Static from 'ol/source/ImageStatic.js';
 import {Projection, fromLonLat} from 'ol/proj.js';
 import LayerSwitcher from 'ol-layerswitcher/dist/ol-layerswitcher.js';
 import {getCenter} from 'ol/extent.js';
@@ -53,7 +54,7 @@ export default class extends Controller {
 
 
       // One LayerGroup for base layers. Listed in reverse order of appearance in list
-      var baseLayers = new GroupLayer({
+      var baseLayers = new LayerGroup({
         // A layer must have a title to appear in the layerswitcher
         title: 'Base maps—Historic and Current',
         layers: [

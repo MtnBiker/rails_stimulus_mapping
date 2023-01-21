@@ -47,10 +47,4 @@ export default class extends Controller {
      }),
    });
   }
-
- 
-// Seen somewhere, but not helping at the moment
-  disconnect(){
-      this.map.remove()
-  }
 }
