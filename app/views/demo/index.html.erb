@@ -11,7 +11,7 @@
 
 <div class="py-2">OpenLayers seems to be changing the canonical way to import, <%= link_to "for example", "https://openlayers.org/en/latest/examples/reprojection-image.html" %>, <code>import {Group as LayerGroup, Tile as TileLayer, Image as ImageLayer} from 'ol/layer.js';</code> typical now. '.js' and 'Something as Something'.</div>
 
-<div class="py-2">One gotcha is that Stimulus has a 'target' and so does OpenLayers and Leaflet. I haven't developed a consistent naming convention which can make debugging difficult. This gets more complicated if two maps are on the same web page. For that reason I try not to use the generic `map` for the OpenLayers/Leaflet 'target' (the 'id=map'. I also thought I had issues with the Stimulus 'targets' getting confused with more than one map per page. Maybe use the same name for both targets or is the Stimulus `targets` being used?</div>
+<div class="py-2">One gotcha is that Stimulus has a 'target' and so does OpenLayers and Leaflet. I haven't developed a consistent naming convention which can make debugging difficult. This gets more complicated if two maps are on the same web page. For that reason I try not to use the generic `map` for the OpenLayers/Leaflet 'target' (the 'id=map'. I also thought I had issues with the Stimulus 'targets' getting confused with more than one map per page. Maybe use the same name for both targets or is the Stimulus `targets` being used at least as long as only using the controller on one page.?</div>
 
 <div class="py-2">Another gotcha is with copy and pasting the html.erb. Stimulus controller name is repeated and easy to misread with all the hyphens, but longer, more descriptive controller names are useful. For example:</div>
 
@@ -35,9 +35,9 @@
 <div class="py-2">Below are several demos I put together to help me sort this out. I tried to do this in my existing apps but ran into conflicts.</div>
 
 <div class="py-1"><%= link_to "OpenLayers Basic Layer Switcher", ollayerswitcher_path %></div>
-<div class="py-1"><%= link_to "OpenLayers with Layer Group", ollayergroup_path, class: "icon-next" %>. Not working yet. A JavaScript problem?<div>
-<div class="py-1"><%= link_to "OpenLayers with an OSM map", olosmmap_path %></div>
-<div class="py-1"><%= link_to "OpenLayers with a Static Image", olstaticimage_path %></div>
+<div class="py-1"><%= link_to "OpenLayers With More Complex Layer Group", ollayergroup_path, class: "icon-next" %><div>
+<div class="py-1"><%= link_to "OpenLayers With an OSM map", olosmmap_path %></div>
+<div class="py-1"><%= link_to "OpenLayers With a Static Image", olstaticimage_path %></div>
 <div class="py-1"><%= link_to "Leaflet with a map and markers", leaflettest_path %></div>
 
 <div class="py-2">The two apps I'm working on: <%= link_to "Croatian Operated Restaurants in Early Los Angeles", "https://croatian-restaurants-la.fly.dev" %> and <%= link_to "Historical Street Names in Los Angeles", "https://la-hist-streets.fly.dev" %>. I hope to get back to these now that I'm sorting out Stimulus and fly.io (moved from Heroku).</div>

@@ -126,6 +126,37 @@ export default class extends Controller {
         groupSelectStyle: 'children' // Can be 'children' [default], 'group' or 'none'
       });
       this.map.addControl(layerSwitcher);
+      
+      // Now adding overlay data
+      
+      $.getJSON('line_data.geojson', function (data_data) { 
+        var timelineData = L.timeline(data_data, {
+          style: function (data_data) {
+            return {
+              stroke: true,
+              fillOpacity: 0.5,
+            };
+          }, // end style: function(data_data)
+          waitToUpdateMap: true,
+          onEachFeature: function (data_data, layer) {
+            layer.bindTooltip(data_data.properties.popup, {direction: 'top'});
+          }, // onEachFeature:
+        }); // end let timelineData = L.timeline
+      
+        var timelineControl = L.timelineSliderControl({
+          enableKeyboardControls: true,
+          steps: 100,
+          start: 1879,
+          end: 1928,
+        });
+        // console.log("46. CONSOLE LOG: timelineData: ", timelineData);
+        timelineData.addTo(this.map); // without this the line don't show
+        // what are the line above and below doing?
+        timelineControl.addTo(this.map);
+        timelineControl.addTimelines(timelineData);
+        // console.log("51. CONSOLE LOG: timelineControl: ", timelineControl);
+        // console.log("52. CONSOLE LOG: last line of $.getJSON. map: ", this.map);
+      }); //  end $.getJSON
 
   }
 }
