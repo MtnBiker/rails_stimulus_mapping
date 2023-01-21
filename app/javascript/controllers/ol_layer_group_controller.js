@@ -12,7 +12,7 @@ import {getCenter} from 'ol/extent.js';
 
 // Connects to data-controller="ol-layer-group"
 export default class extends Controller {
-    static targets = [ "lgmap" ];
+    // static targets = [ "lgmap" ];
 
     connect(){
       console.log("20. Hi from ol_layer_group_controller to confirm that Stimulus controller is connected to the page."); // this shows up
